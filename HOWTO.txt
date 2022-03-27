@@ -3,13 +3,19 @@
 Nick Willmot, School of Psycholgy, University of Queensland
 nick.willmot2@gmail.com
 
-So you have your massive study setup on SONA and you're getting plenty of signups but it's kind of hard to keep up with all the appointments because the SONA interface isn't too user friendly.
+So you have your massive study setup on SONA and you're getting plenty of signups but it's kind of hard to keep up with all the appointments 
+because the SONA interface isn't too user friendly.
 
-Wouldn't it be nice if SONA automatically exported your time slots to your own google calendar... well it doesn't and probably won't anytime soon... BUT you can do it yourself with a few Python files, Google API and crontab.
+Wouldn't it be nice if SONA automatically exported your time slots to your own google calendar... well it doesn't and probably won't anytime soon... 
+BUT you can do it yourself with a few Python files, Google API and crontab.
 
-Credit to Meng Du, UCLA for doing most of the code for this <https://github.com/MetaD/SONA2Calendar> All I have done here is make edits to get the code to work with crontab and added step-by-step instructions to prevent others going through the pain I did getting this to work. If you hit any issues email me or search on stackoverflow.
+Credit to Meng Du, UCLA for doing most of the code for this <https://github.com/MetaD/SONA2Calendar> 
 
-# Note these instructions are for MacOS. They should work fine on Linux aswell but will need tweaking for Windows when you get to the Crontab section.
+All I have done here is make edits to get the code to work with crontab and added step-by-step instructions to prevent others 
+going through the pain I did getting this to work. If you hit any issues email me or search on stackoverflow.
+
+# Note these instructions are for MacOS. They should work fine on Linux aswell but will need tweaking for 
+Windows when you get to the Crontab section.
 
 Preparation:
 1. Grab some beer, wine, coffee or all 3 because one or more typos in your code can make this a long painful process of screaming at terminal
@@ -19,8 +25,8 @@ Preparation:
 5. Setup a gmail account (if you don't already have one) and then setup a calendar for your study
     # You need one calendar per SONA study
 6. Setup a Google Cloud project (https://developers.google.com/workspace/guides/create-project)
-7. Enable the Google Calendar API for above project (https://developers.google.com/workspace/guides/enable-apis)
-8. Create access credentials (https://developers.google.com/workspace/guides/create-credentials#oauth-client-id)
+7. Enable the Google Calendar API for above project (https://developers.google.com/workspace/guides/enable-apis) 
+8. Create access credentials (https://developers.google.com/workspace/guides/create-credentials#oauth-client-id) 
     # You need OAuth credentials for a 'Desktop app' 
     # Follow instructions above and download the .json file to your project directory
     # Change name of .json file to 'credentials.json'
@@ -69,9 +75,15 @@ Preparation:
     > Done
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Ok, hopefully you are at this point because you got it to work and are now seeing your SONA appointments in Google calendar. BUT you can only get it to update by maually running the code in terminal every now and then like some kind of mid-90's hackerman in charge of security at Jurassic Park. You're a busy person with a busy life, can't we automate this process? Yes, yes we can... with the help of Crontab.
+Ok, hopefully you are at this point because you got it to work and are now seeing your SONA appointments in Google calendar. 
+BUT you can only get it to update by maually running the code in terminal every now and then like some kind of mid-90's hackerman 
+in charge of security at Jurassic Park. 
+You're a busy person with a busy life, can't we automate this process? 
+Yes, yes we can... with the help of Crontab.
 
-Crontab is a native feature on macOS and Linux. It receives certain inputs and will then run a code automatically whenever you want it to... however the way you tell it to run, say every 5 minutes, is via some kind of pre-WW2 code system of astericks and numbers that is easy to mess up. Go to https://crontab.guru/ and play around with the tool there to find the right option for you. Note; running every minute or every 5 minutes can be intense for your computer and your internet connection. You might only want every hour or so.
+Crontab is a native feature on macOS and Linux. It receives certain inputs and will then run a code automatically whenever you want it to... 
+however the way you tell it to run, say every 5 minutes, is via some kind of pre-WW2 code system of astericks and numbers that is easy to mess up. 
+Go to https://crontab.guru/ and play around with the tool there to find the right option for you. Note; running every minute or every 5 minutes can be intense for your computer and your internet connection. You might only want every hour or so, which would be [0  *   *   *   *]
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 16. In terminal type the following;
     > env EDITOR=nano crontab -e
@@ -96,10 +108,16 @@ Crontab is a native feature on macOS and Linux. It receives certain inputs and w
 
 CONGRATULATIONS you did it. So now sit back and relax and watch your SONA appointments effortlessly appear in your Google calendar. A few notes;
 
-1. This only works when your computer is on and connected to internet. If you need it to run constantly then consider using a small computer (Raspberry Pi) that is constantly connected to internet. But if you run it off the computer you work on each day then it should be fine.
-2. You can parcel up the python code using pyinstaller and make it an .exe that can be run by Windows scheduler software or other apps. See pyinstaller for more details. You might run into issues with accessing the credentials files when you parcel into .exe, a work around is to add crednetials as a dictionary inside the python code... Just google it.
-3. It's more complicated when you run multi-part studies in SONA (like I did). You need to create a .py file for each Part of your study; e.g., sona2calendar_p1.py, sona2calendar_p2.py then edit the ['_HyperlinkTimeSlot'] extension on Line 56 to reflect each part; e.g., ['_HyperlinkPart1TimeSlot']. Funnily enough though you can run the .py code for multiple studies. For example if you have two multi-part studies in SONA (like me) you can have the one .py code scrape Part 1 (or 2, 3,4 etc) appointments for both studies in the one routine. 
-4. There's probably a way to have your SONA sign-up emails forwarded to Google and then auto-added to your calendar. This would work similar to the code here, but instead of scraping SONA it would scrape your inbox. Issues I could foresee with that method would be having the cancellation emails remove the appt instead of adding a new one in.
+1. This only works when your computer is on and connected to internet. If you need it to run constantly then consider using a small computer 
+(Raspberry Pi) that is constantly connected to internet. But if you run it off the computer you work on each day then it should be fine.
+2. You can parcel up the python code using pyinstaller and make it an .exe that can be run by Windows scheduler software or other apps. 
+See pyinstaller for more details. You might run into issues with accessing the credentials files when you parcel into .exe, a work around 
+is to add crednetials as a dictionary inside the python code... Just google it.
+3. It's more complicated when you run multi-part studies in SONA (like I did). You need to create a .py file for each Part of your study; e.g., sona2calendar_p1.py, sona2calendar_p2.py then edit the ['_HyperlinkTimeSlot'] extension on Line 56 to reflect each part; e.g., ['_HyperlinkPart1TimeSlot']. Funnily enough though you can run the .py code for multiple studies. For example if you have two multi-part 
+studies in SONA (like me) you can have the one .py code scrape Part 1 (or 2, 3,4 etc) appointments for both studies in the one routine. 
+4. There's probably a way to have your SONA sign-up emails forwarded to Google and then auto-added to your calendar. This would work similar 
+to the code here, but instead of scraping SONA it would scrape your inbox. Issues I could foresee with that method would be having the cancellation 
+emails remove the appt instead of adding a new one in.
 
 
 
