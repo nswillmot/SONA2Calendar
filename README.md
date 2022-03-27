@@ -96,7 +96,7 @@ Windows when you get to the Crontab section.
     Connecting to Google calendar...
     Fetching events from Google calendar...
     Event "SONA/ User (Participant_Name)" added
-    Done
+    Done`
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Ok, hopefully you are at this point because you got it to work and are now seeing your SONA appointments in Google calendar. 
@@ -113,15 +113,16 @@ however the way you tell it to run, say every 5 minutes, is via some kind of pre
 16. In terminal type the following;
     `env EDITOR=nano crontab -e`
 17. In the Nano editor screen that has now appeared type the following (substitute in your own crontab code, the example here is hourly)
-    >  0    *   *   *   *   /usr/bin/python3    /Users/macbook/path_to_your_project/sona2calendar.py
+
+    `0      *       *       *       *     /usr/bin/python3        /Users/macbook/path_to_your_project/sona2calendar.py`
     
     _Use tabs to separate everything, not spaces_
     
 18. Save the file (^O). Press enter to accept filename then close crontab editor (^X)
 19. You should get a message saying the crontab is being installed, you will see a pop-up asking for Admin rights, click [Allow]
-20. Check the crontab is saved by typing the below into terminal 
+20. Check the crontab is saved by typing 
     `crontab -l`
-20. Crontab sends emails when it executes the task (or fails to execute) To check this email type the following into terminal
+20. Crontab sends emails when it executes the task (or fails to execute) To check this email type;
     `mail`
 21. Select the number of the message you want to read by typing the number, e.g.,
     `2`
