@@ -1,6 +1,11 @@
 # HOW TO PULL SONA BOOKINGS INTO GOOGLE CALENDAR 
 
-Nick Willmot, School of Psycholgy, University of Queensland
+Nick Willmot
+
+School of Psychology
+
+The University of Queensland
+
 nick.willmot2@gmail.com
 
 So you have your massive study setup on SONA and you're getting plenty of signups but it's kind of hard to keep up with all the appointments 
@@ -17,7 +22,7 @@ going through the pain I did getting this to work. If you hit any issues email m
 Note these instructions are for MacOS. They should work fine on Linux aswell but will need tweaking for 
 Windows when you get to the Crontab section.
 
-Preparation:
+
 1. Grab some beer, wine, coffee or all 3 because one or more typos in your code can make this a long painful process of screaming at terminal
 2. Create a new folder somewhere handy (this will be your project directory) and download the code files from 
 3. Use a decent coding platform like Visual Studio Code https://code.visualstudio.com and ensure your Python is up to date https://www.python.org/downloads/mac-osx/
@@ -42,7 +47,7 @@ Preparation:
     `python3 pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib`
     
     _You can use py instead of python3 but I use the latter to distinguish it from older py packages I have installed_
-    
+
 10. Navigate to your working directory
     `cd /Users/macbook/...wherever your folder is/`
     _In macOS terminal if a folder in your path has a space like /Google Drive/ you need to write it as /Google\ Drive/_
