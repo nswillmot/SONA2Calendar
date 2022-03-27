@@ -14,7 +14,7 @@ Credit to Meng Du, UCLA for doing most of the code for this <https://github.com/
 All I have done here is make edits to get the code to work with crontab and added step-by-step instructions to prevent others 
 going through the pain I did getting this to work. If you hit any issues email me or search on stackoverflow.
 
-# Note these instructions are for MacOS. They should work fine on Linux aswell but will need tweaking for 
+Note these instructions are for MacOS. They should work fine on Linux aswell but will need tweaking for 
 Windows when you get to the Crontab section.
 
 Preparation:
