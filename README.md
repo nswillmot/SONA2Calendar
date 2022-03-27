@@ -50,6 +50,7 @@ Windows when you get to the Crontab section.
 
 10. Navigate to your working directory
     `cd /Users/macbook/...wherever your folder is/`
+    
     _In macOS terminal if a folder in your path has a space like /Google Drive/ you need to write it as /Google\ Drive/_
 11. Install required packages
 
