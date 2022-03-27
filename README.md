@@ -24,7 +24,7 @@ Windows when you get to the Crontab section.
 
 
 1. Grab some beer, wine, coffee or all 3 because one or more typos in your code can make this a long painful process of screaming at terminal
-2. Create a new folder somewhere handy (this will be your project directory) and download the code files from 
+2. Create a new folder somewhere handy (this will be your project directory) and download the code files from https://github.com/nswillmot/SONA2Calendar
 3. Use a decent coding platform like Visual Studio Code https://code.visualstudio.com and ensure your Python is up to date https://www.python.org/downloads/mac-osx/
 4. Install pip (follow steps here https://pypi.org/project/pip/c)
 5. Setup a gmail account (if you don't already have one) and then setup a calendar for your study
